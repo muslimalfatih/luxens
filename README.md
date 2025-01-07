@@ -56,7 +56,7 @@
 
 1. **Clone & Install**
    ```bash
-   git clone https://github.com/yourusername/luxens.git
+   git clone https://github.com/muslimalfatih/luxens.git
    cd luxens
    npm install
    ```
