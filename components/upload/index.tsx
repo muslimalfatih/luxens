@@ -67,9 +67,44 @@ export function UploadZone() {
     }
   }, [])
 
+  const handleSaveImage = async () => {
+    try {
+      const html2canvas = (await import('html2canvas')).default;
+      
+      // Find the ImagePreview component in the DOM
+      const element = document.querySelector('.image-preview-container');
+      if (!element) {
+        throw new Error('Preview element not found');
+      }
+
+      // Create canvas from the entire component
+      const canvas = await html2canvas(element as HTMLElement, {
+        backgroundColor: 'white',
+        scale: 2.5, // Higher scale for better quality
+        logging: false,
+      });
+      
+      // Convert to high quality JPEG
+      const jpegUrl = canvas.toDataURL('image/jpeg', 1.0);
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.href = jpegUrl;
+      link.download = 'photo-with-details.jpg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      toast.success("Image with details saved successfully");
+    } catch (error) {
+      console.error('Error saving image:', error);
+      toast.error("Failed to save image with details");
+    }
+  };
+
   return (
     <div className="space-y-4">
-      <Toaster />
+      <Toaster position="top-right"/>
       <div className="flex justify-between items-center">
         <Button
           variant="ghost" 
@@ -81,11 +116,11 @@ export function UploadZone() {
             Back
           </Link>
         </Button>
-        {/* TODO: Add save and download functionality. Issue on HEIC files */}
         {imageUrl && (
           <Button
             variant="ghost"
             className="text-sm text-neutral-400 hover:text-neutral-100 hover:border hover:border-neutral-100 hover:bg-transparent"
+            onClick={handleSaveImage}
           >
             Save
           </Button>

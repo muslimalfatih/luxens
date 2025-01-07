@@ -24,19 +24,6 @@
   - Supports both smartphone and camera photos
   - Handles modern image formats
 
-## 🛠️ Technology Stack
-
-### Core
-- **Framework:** [Next.js 14](https://nextjs.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
-
-### EXIF Processing
-- **Primary:** [exifr](https://github.com/MikeKovarik/exifr)
-  - Lightweight (8KB gzipped)
-  - Browser-based processing
-  - Excellent mobile support=
-
 ## 📱 Device Support
 
 ### Smartphones

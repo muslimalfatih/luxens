@@ -8,7 +8,7 @@ interface ImagePreviewProps {
 
 export function ImagePreview({ imageUrl, exifData }: ImagePreviewProps) {
   return (
-    <div className="max-w-2xl mx-auto py-5 px-4 bg-white">
+    <div className="max-w-2xl mx-auto py-5 px-4 bg-white image-preview-container">
       <div className="relative aspect-[3/4] w-full mb-4">
         <Image
           src={imageUrl}
