@@ -22,7 +22,7 @@ export function ImagePreview({ imageUrl, exifData }: ImagePreviewProps) {
       {exifData && (
         <div className="text-sm text-center space-y-1 text-black">
           <p>
-            Shot on <span className="font-semibold">{exifData.device.model}</span> {exifData.device.brand}
+            Shot on <span className="font-bold">{exifData.device.model}</span>
           </p>
           <p className="text-black">
             {exifData.camera.focalLength}, {exifData.camera.aperture}, {' '}
